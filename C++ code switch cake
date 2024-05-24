@@ -1,0 +1,63 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
+#include <algorithm> // for sort
+
+using namespace std;
+
+int randomInRange(int min, int max) {
+    return min + rand() % (max -min + 1);
+}
+
+// Function to sort a vector
+void sortVector(vector<int>& vec) {
+    // Use sort to sort the vector
+    sort(vec.begin(), vec.end());
+}
+
+int main() {
+    srand(time(0));
+
+    int size = 6;
+    int fitback;
+
+    //create the first vector with random numbers
+    vector<int> vector1(size);
+    for (int i = 0; i < size; ++i) {
+        vector1[i] = randomInRange(0, 6);
+    }
+
+    //create the second vector with random numbers
+    vector<int> vector2(size);
+    for (int i = 0; i < size; ++i) {
+        vector2[i] = randomInRange(0, 6);
+    }
+
+    //print the first vector
+    cout << "Vector 1 : ";
+    for (int num : vector1) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    //print the second vector
+    cout << "vector 2 : ";
+    for (int num : vector2) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    cout << "Gabungkan? (yes/no) : ";
+    cin >> fitback;
+    switch (fitback)
+    {
+    case 1:
+        sortVector(vector1);
+    case 0:
+        break;
+    default:
+        break;
+    }
+    
+}
